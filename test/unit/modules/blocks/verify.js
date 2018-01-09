@@ -48,8 +48,8 @@ var validBlock = {
 			'amount': 10000000000000000,
 			'fee': 0,
 			'timestamp': 0,
-			'recipientId': '16313739661670634666L',
-			'senderId': '1085993630748340485L',
+			'recipientAddress': '16313739661670634666L',
+			'senderAddress': '1085993630748340485L',
 			'senderPublicKey': 'c96dec3595ff6041c3bd28b76b8cf75dce8225173d1bd00241624ee89b50f2a8',
 			'signature': 'd8103d0ea2004c3dea8076a6a22c6db8bae95bc0db819240c77fc5335f32920e91b9f41f58b01fc86dfda11019c9fd1c6c3dcbab0a4e478e3c9186ff6090dc05',
 			'id': '1465651642158264047'
@@ -59,8 +59,8 @@ var validBlock = {
 			'amount': 0,
 			'fee': 0,
 			'timestamp': 0,
-			'recipientId': '16313739661670634666L',
-			'senderId': '16313739661670634666L',
+			'recipientAddress': '16313739661670634666L',
+			'senderAddress': '16313739661670634666L',
 			'senderPublicKey': 'c094ebee7ec0c50ebee32918655e089f6e1a604b83bcaa760293c61e0f18ab6f',
 			'asset': {
 				'votes': [
@@ -95,8 +95,8 @@ var blockRewardInvalid = {
 			'amount': 10000000000000000,
 			'fee': 0,
 			'timestamp': 0,
-			'recipientId': '16313739661670634666L',
-			'senderId': '1085993630748340485L',
+			'recipientAddress': '16313739661670634666L',
+			'senderAddress': '1085993630748340485L',
 			'senderPublicKey': 'c96dec3595ff6041c3bd28b76b8cf75dce8225173d1bd00241624ee89b50f2a8',
 			'signature': 'd8103d0ea2004c3dea8076a6a22c6db8bae95bc0db819240c77fc5335f32920e91b9f41f58b01fc86dfda11019c9fd1c6c3dcbab0a4e478e3c9186ff6090dc05',
 			'id': '1465651642158264047'
@@ -106,8 +106,8 @@ var blockRewardInvalid = {
 			'amount': 0,
 			'fee': 0,
 			'timestamp': 0,
-			'recipientId': '16313739661670634666L',
-			'senderId': '16313739661670634666L',
+			'recipientAddress': '16313739661670634666L',
+			'senderAddress': '16313739661670634666L',
 			'senderPublicKey': 'c094ebee7ec0c50ebee32918655e089f6e1a604b83bcaa760293c61e0f18ab6f',
 			'asset': {
 				'votes': [
@@ -172,8 +172,8 @@ var transactionsBlock1 = [
 		'amount': 10000000000000000,
 		'fee': 10000000,
 		'timestamp': 33514086,
-		'recipientId': '16313739661670634666L',
-		'senderId': '2737453412992791987L',
+		'recipientAddress': '16313739661670634666L',
+		'senderAddress': '2737453412992791987L',
 		'senderPublicKey': 'c76a0e680e83f47cf07c0f46b410f3b97e424171057a0f8f0f420c613da2f7b5',
 		'signature': '57bc34c092189e6520b1fcb5b8a1e911d5aed56910ae75d8bbf6145b780dce539949ba86a0ae8d6a33b3a2a68ce8c16eb39b448b4e53f5ca8b04a0da3b438907',
 		'id': '7249285091378090017'
@@ -187,8 +187,8 @@ var transactionsBlock2 = [
 		'amount': 100000000,
 		'fee': 10000000,
 		'timestamp': 33772862,
-		'recipientId': '16313739661670634666L',
-		'senderId': '2737453412992791987L',
+		'recipientAddress': '16313739661670634666L',
+		'senderAddress': '2737453412992791987L',
 		'senderPublicKey': 'c76a0e680e83f47cf07c0f46b410f3b97e424171057a0f8f0f420c613da2f7b5',
 		'signature': 'd2b2cb8d09169bf9f22ef123361036ae096ad71155fc3afddc7f22d4118b56a949fb82ff12fd6e6a05f411fe7e9e7877f71989959f895a6de94c193fe078f80b',
 		'id': '15250193673472372402'

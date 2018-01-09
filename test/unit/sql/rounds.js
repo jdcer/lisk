@@ -181,16 +181,16 @@ describe('Rounds-related SQL triggers', function () {
 		var genesisAccounts;
 
 		before(function () {
-			// Get genesis accounts address - should be senderId from first transaction
-			genesisAccount = library.genesisblock.block.transactions[0].senderId;
+			// Get genesis accounts address - should be senderAddress from first transaction
+			genesisAccount = library.genesisblock.block.transactions[0].senderAddress;
 
 			// Get unique accounts from genesis block
 			genesisAccounts = _.reduce(library.genesisblock.block.transactions, function (accounts, transaction) {
-				if (transaction.senderId && accounts.indexOf(transaction.senderId) === -1) {
-					accounts.push(transaction.senderId);
+				if (transaction.senderAddress && accounts.indexOf(transaction.senderAddress) === -1) {
+					accounts.push(transaction.senderAddress);
 				}
-				if (transaction.recipientId && accounts.indexOf(transaction.recipientId) === -1) {
-					accounts.push(transaction.recipientId);
+				if (transaction.recipientAddress && accounts.indexOf(transaction.recipientAddress) === -1) {
+					accounts.push(transaction.recipientAddress);
 				}
 				return accounts;
 			}, []);
@@ -215,7 +215,7 @@ describe('Rounds-related SQL triggers', function () {
 					expect(found).to.be.an('object');
 
 					expect(delegate.name).to.equal(found.asset.delegate.username);
-					expect(delegate.address).to.equal(found.senderId);
+					expect(delegate.address).to.equal(found.senderAddress);
 					expect(delegate.pk).to.equal(found.senderPublicKey);
 
 					// Data populated by trigger
@@ -482,7 +482,7 @@ describe('Rounds-related SQL triggers', function () {
 			_.each(transactions, function (transaction) {
 				var last_block = library.modules.blocks.lastBlock.get();
 
-				var address = transaction.senderId
+				var address = transaction.senderAddress
 				if (mem_state[address]) {
 					// Update sender
 					mem_state[address].balance -= (transaction.fee+transaction.amount);
@@ -491,7 +491,7 @@ describe('Rounds-related SQL triggers', function () {
 					mem_state[address].virgin = 0;
 				}
 
-				address = transaction.recipientId;
+				address = transaction.recipientAddress;
 				if (mem_state[address]) {
 					// Update recipient
 					mem_state[address].balance += transaction.amount;

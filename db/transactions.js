@@ -14,8 +14,8 @@ function TransactionsRepo (db, pgp) {
 		'type',
 		'timestamp',
 		'senderPublicKey',
-		'senderId',
-		'recipientId',
+		'senderAddress',
+		'recipientAddress',
 		'confirmations',
 		'height'
 	];
@@ -38,7 +38,7 @@ var Queries = {
 
 	list: function (params) {
 		return [
-			'SELECT "t_id", "b_height", "t_blockId", "t_type", "t_timestamp", "t_senderId", "t_recipientId",',
+			'SELECT "t_id", "b_height", "t_blockId", "t_type", "t_timestamp", "t_senderAddress", "t_recipientAddress",',
 			'"t_amount", "t_fee", "t_signature", "t_SignSignature", "t_signatures", "confirmations",',
 			'ENCODE ("t_senderPublicKey", \'hex\') AS "t_senderPublicKey", ENCODE ("m_recipientPublicKey", \'hex\') AS "m_recipientPublicKey"',
 			'FROM trs_list',

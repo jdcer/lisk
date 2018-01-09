@@ -335,7 +335,7 @@ d.run(function () {
 					}
 
 					// Ignore conditional fields for transactions list
-					if (/^.+?:(blockId|recipientId|senderId)$/.test(name)) {
+					if (/^.+?:(blockId|recipientAddress|senderAddress)$/.test(name)) {
 						return value;
 					}
 
