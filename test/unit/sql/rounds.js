@@ -147,6 +147,26 @@ describe('Rounds-related SQL triggers', function () {
 		return rewards;
 	}
 
+	function normalizeTransactionObject (transaction) {
+		if (_.isObject(transaction)) {
+			transaction = _.cloneDeep(transaction);
+
+			transaction.recipientAddress = transaction.recipientId || '';
+			transaction.senderAddress = transaction.senderId || '';
+			delete transaction.recipientId;
+			delete transaction.senderId;
+
+			if (_.has(transaction, 'amount')) {
+				transaction.amount = transaction.amount.toString();
+			}
+
+			if (_.has(transaction, 'fee')) {
+				transaction.fee = transaction.fee.toString();
+			}
+		}
+		return transaction;
+	}
+
 	before(function (done) {
 		originalBlockRewardsOffset = constants.rewards.offset;
 		constants.rewards.offset = 150;
@@ -566,6 +586,7 @@ describe('Rounds-related SQL triggers', function () {
 				randomUtil.number(100000000, 1000000000),
 				accountFixtures.genesis.password
 			);
+			transaction = normalizeTransactionObject(transaction);
 			transactions.push(transaction);
 
 			return tickAndValidate(transactions);
@@ -581,6 +602,7 @@ describe('Rounds-related SQL triggers', function () {
 					randomUtil.number(100000000, 1000000000),
 					accountFixtures.genesis.password
 				);
+				transaction = normalizeTransactionObject(transaction);
 				transactions.push(transaction);
 			}
 
@@ -601,6 +623,7 @@ describe('Rounds-related SQL triggers', function () {
 						randomUtil.number(100000000, 1000000000),
 						accountFixtures.genesis.password
 					);
+					transaction = normalizeTransactionObject(transaction);
 					transactions.push(transaction);
 				}
 				test.debug('	Processing block ' + blocks_processed + ' of ' + blocks_cnt + ' with ' + transactions.length + ' transactions');
@@ -781,6 +804,7 @@ describe('Rounds-related SQL triggers', function () {
 						var transactions = [];
 						tmp_account = randomUtil.account();
 						var transaction = lisk.transaction.createTransaction(tmp_account.address, 5000000000, accountFixtures.genesis.password);
+						transaction = normalizeTransactionObject(transaction);
 						transactions.push(transaction);
 						return tickAndValidate(transactions);
 					})
